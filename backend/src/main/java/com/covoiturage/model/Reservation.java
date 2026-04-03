@@ -6,9 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Entité représentant une réservation effectuée par un passager pour un trajet.
- */
+
 @Data
 @Builder
 @NoArgsConstructor
