@@ -33,10 +33,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/error").permitAll()
-                        // Autoriser TOUS les GET sur les trajets (consultation publique)
                         .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/trajets", "/api/trajets/**").permitAll()
-                        // Si tu as une route spécifique pour la recherche, elle est incluse au-dessus,
-                        // mais tu peux la laisser par sécurité :
                         .requestMatchers("/api/trajets/search").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
@@ -51,7 +48,7 @@ public class SecurityConfiguration {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:5174")); // Vite dev server
+        configuration.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:5174")); 
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With"));
         configuration.setAllowCredentials(true);
