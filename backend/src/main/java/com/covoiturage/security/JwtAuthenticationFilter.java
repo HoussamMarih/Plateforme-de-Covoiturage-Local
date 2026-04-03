@@ -64,8 +64,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 }
             }
         } catch (Exception e) {
-            // Token invalide ou expiré, laisser continuer la chaîne de filtres
-            // Spring Security bloquera l'accès à la ressource si requise
         }
         
         filterChain.doFilter(request, response);
