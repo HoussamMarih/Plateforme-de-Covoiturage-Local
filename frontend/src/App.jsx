@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 
-// Pages
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -13,7 +12,7 @@ import ProposerTrajet from './pages/ProposerTrajet';
 import MesTrajets from './pages/MesTrajets';
 import Profil from './pages/Profil';
 import { NotificationProvider } from './contexts/NotificationContext';
-import './index.css'; // Assure-toi que le chemin est correct vers ton fichier CSS
+import './index.css';
 function App() {
   return (
     <NotificationProvider>
@@ -22,12 +21,10 @@ function App() {
         <Navbar />
         <main className="flex-grow">
           <Routes>
-            {/* Routes publiques */}
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
-            {/* Routes protégées standard (Passager/Conducteur/Admin) */}
             <Route
               path="/mes-reservations"
               element={
@@ -37,7 +34,6 @@ function App() {
               }
             />
 
-            {/* Route Profil */}
             <Route
               path="/profil"
               element={
@@ -47,7 +43,6 @@ function App() {
               }
             />
 
-            {/* Routes Conducteur */}
             <Route
               path="/proposer"
               element={
@@ -65,7 +60,6 @@ function App() {
               }
             />
 
-            {/* Routes Admin */}
             <Route
               path="/admin"
               element={
@@ -75,7 +69,6 @@ function App() {
               } 
             />
 
-            {/* Fallback */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
