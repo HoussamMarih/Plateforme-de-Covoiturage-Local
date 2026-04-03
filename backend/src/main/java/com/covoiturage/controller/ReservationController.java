@@ -66,7 +66,7 @@ public class ReservationController {
             Reservation reservation = Reservation.builder()
                     .passager(passager)
                     .trajet(trajet)
-                    .statut(ReservationStatus.PENDING) // Ou CONFIRMED direct selon la logique métier souhaitée
+                    .statut(ReservationStatus.PENDING)
                     .build();
 
             return ResponseEntity.ok(reservationRepository.save(reservation));
@@ -157,7 +157,6 @@ public class ReservationController {
         }
     }
 
-    // --- Endpoints pour le PASSAGER ---
 
     @PutMapping("/{id}/annuler")
     @Transactional
