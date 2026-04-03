@@ -15,6 +15,5 @@ public class RegisterRequest {
     private String password;
     private String telephone;
     private String cin;
-    // Par défaut, tous les inscrits sont des PASSAGER, on peut permettre de spécifier CONDUCTEUR
     private String role; 
 }
