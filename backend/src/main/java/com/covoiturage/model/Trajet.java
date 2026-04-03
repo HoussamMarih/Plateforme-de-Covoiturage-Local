@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-/**
- * Entité représentant une annonce de trajet proposée par un conducteur.
- */
+
 @Data
 @Builder
 @NoArgsConstructor
