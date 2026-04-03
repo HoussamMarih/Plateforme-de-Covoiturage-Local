@@ -13,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Entité représentant un utilisateur de la plateforme.
- */
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "users") // "user" est un mot réservé dans PostgreSQL
+@Table(name = "users")
 public class User implements UserDetails {
 
     @Id
@@ -45,7 +43,6 @@ public class User implements UserDetails {
     @Column(unique = true, nullable = false)
     private String cin;
 
-    // ----- Méthodes de l'interface UserDetails de Spring Security -----
 
     @JsonIgnore
     @Override
