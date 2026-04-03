@@ -45,7 +45,6 @@ public class UserController {
         User currentUser = userRepository.findByEmail(principal.getName())
             .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
             
-        // Vérification de conflit d'email
         if (!currentUser.getEmail().equals(updatedUser.getEmail()) && 
             userRepository.findByEmail(updatedUser.getEmail()).isPresent()) {
             return ResponseEntity.badRequest().body("Cet email est déjà utilisé par un autre compte.");
@@ -60,7 +59,7 @@ public class UserController {
         userRepository.save(currentUser);
         
         Map<String, Object> response = new HashMap<>();
-        response.put("user", currentUser); // les données mises à jour
+        response.put("user", currentUser);
         
         if (emailChanged) {
             String newToken = jwtService.generateToken(currentUser);
