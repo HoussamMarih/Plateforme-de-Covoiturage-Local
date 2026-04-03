@@ -79,7 +79,6 @@ public class TrajetController {
                 return ResponseEntity.status(403).body("Non autorisé");
             }
             
-            // Suppression en cascade manuelle des réservations liées au trajet
             List<Reservation> reservations = reservationRepository.findByTrajetId(id);
             if (!reservations.isEmpty()) {
                 reservationRepository.deleteAll(reservations);
