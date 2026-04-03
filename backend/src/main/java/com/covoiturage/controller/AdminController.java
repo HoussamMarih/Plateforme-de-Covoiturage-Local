@@ -42,13 +42,11 @@ public class AdminController {
              return ResponseEntity.badRequest().body("Impossible de supprimer un administrateur");
         }
 
-        // Nettoyer les réservations du passager
         List<Reservation> userReservations = reservationRepository.findByPassagerId(id);
         if (!userReservations.isEmpty()) {
             reservationRepository.deleteAll(userReservations);
         }
 
-        // Nettoyer les trajets du conducteur ET les réservations associées à ces trajets
         List<Trajet> userTrips = trajetRepository.findByConducteur(user);
         for (Trajet t : userTrips) {
             List<Reservation> tripReservations = reservationRepository.findByTrajetId(t.getId());
